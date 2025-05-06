@@ -10,6 +10,9 @@ const EmployeeController = require("./controller/EmployeeController.js");
 const uploadRoutes = require("./routes/uploadRoutes");
 const cors=require("cors");
 const cookieParser = require("cookie-parser");
+const authRoutes = require("./routes/authRoutes");
+const bookRoutes = require("./routes/bookRoutes");
+const exchangeRoutes = require("./routes/exchangeRoutes");
 
 const app = express();
 app.use(express.json());
@@ -20,9 +23,6 @@ app.use(cookieParser());
 dbConnect(); 
 
 // Set the port from config or default to 3000
-const port = config.port || 3000;
-
-console.log("Server running on port:", port);
 
 app.use(express.json());
 
@@ -31,6 +31,9 @@ app.use("/api", uploadRoutes);
 app.use("/api/employee", EmployeeRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api", router);
+app.use("/api/auth", authRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/exchanges", exchangeRoutes);
 
 
 // // Database Connection
@@ -38,9 +41,8 @@ app.use("/api", router);
 //   .then(() => console.log("MongoDB Connected"))
 //   .catch(err => console.log(err));
 
-app.listen(4000, () => console.log("Server running on port 3000"));
-// Move error handler to the bottom
 app.use(errorHandler);
 
-// Start the server on the correct port
+// Start the server
+const port = config.port || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
