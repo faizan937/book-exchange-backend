@@ -6,13 +6,13 @@ const router = require("./routes");
 const errorHandler = require("./middlewares/errorHandler.js");
 const feedbackRoutes = require("./routes/feedbackRoutes.js");
 const EmployeeRoutes = require("./routes/EmployeeRoutes");
-const EmployeeController = require("./controller/EmployeeController.js");
+const EmployeeController = require("./controllers/EmployeeController.js");
 const uploadRoutes = require("./routes/uploadRoutes");
 const cors=require("cors");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
 const bookRoutes = require("./routes/bookRoutes");
-const exchangeRoutes = require("./routes/exchangeRoutes");
+const exchangeRoutes = require("./routes/exchange.js");
 
 const app = express();
 app.use(express.json());

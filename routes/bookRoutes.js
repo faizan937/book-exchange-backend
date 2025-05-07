@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bookController = require("../controllers/bookController");
-const auth = require("../middleware/authMiddleware");
+const auth = require("../middlewares/authmiddleware");
 
 router.post("/", auth, bookController.uploadBook);
 router.get("/my", auth, bookController.getMyBooks);
