@@ -41,6 +41,7 @@ app.use("/api/exchanges", exchangeRoutes);
 //   .then(() => console.log("MongoDB Connected"))
 //   .catch(err => console.log(err));
 
+
 app.use(errorHandler);
 
 // Start the server
