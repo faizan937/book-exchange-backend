@@ -1,5 +1,5 @@
-const Book = require("../models/Book");
-const User = require("../models/usm");
+const Book = require("../models/book");
+const User = require("../models/user");
 
 // Upload a book
 exports.uploadBook = async (req, res) => {
